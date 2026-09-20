@@ -106,7 +106,7 @@ Representative coverage may be reused when states share the same already-verifie
 
 ## Phase 1 — Foundation, route shell, and mock harness
 
-**Status:** `NOT STARTED`
+**Status:** `IN PROGRESS`
 
 **Dependencies:** None
 
@@ -125,21 +125,21 @@ Establish a clean UI-only foundation that can support the complete Stitch invent
 
 | Reference | Stitch ID | Implemented | Functional | iOS | Android | Notes |
 |---|---|---:|---:|---:|---:|---|
-| TrackFly Brand Mark | `4bb8af66f60c444c9ff75c90d70bd031` | [ ] | [ ] | [ ] | [ ] | Asset/component, not a route |
+| TrackFly Brand Mark | `4bb8af66f60c444c9ff75c90d70bd031` | [x] | [x] | [x] | [x] | Exact Stitch SVG/PNG exported locally; visually compared in the Phase 1 harness on iPhone 17 and Pixel_3 |
 
 ### Implementation tasks
 
-- [ ] Inspect the brand-mark asset in Stitch before adding it to the application.
-- [ ] Reconcile `package.json` scripts with the current repository state, including the deleted reset script.
-- [ ] Define route groups for onboarding/auth, tabs, supporting flows, and true modal routes.
-- [ ] Add a predictable development entry path for reaching mock scenarios without turning every state into a route.
-- [ ] Define shared TypeScript types for mock entities and scenario identifiers.
-- [ ] Define deterministic fixture dates/times and a controllable mock clock.
-- [ ] Define a single mock scenario registry with stable IDs and descriptions.
-- [ ] Establish the smallest justified Redux Toolkit store for cross-route UI/workflow state.
-- [ ] Keep ephemeral form, focus, expanded/collapsed, and animation state local to components.
-- [ ] Ensure theme selection and scenario selection can be exercised locally.
-- [ ] Acquire or confirm local production-usable brand and font assets before depending on them.
+- [x] Inspect the brand-mark asset in Stitch before adding it to the application.
+- [x] Reconcile `package.json` scripts with the current repository state, including the deleted reset script.
+- [x] Define route groups for onboarding/auth, tabs, supporting flows, and true modal routes.
+- [x] Add a predictable development entry path for reaching mock scenarios without turning every state into a route.
+- [x] Define shared TypeScript types for mock entities and scenario identifiers.
+- [x] Define deterministic fixture dates/times and a controllable mock clock.
+- [x] Define a single mock scenario registry with stable IDs and descriptions.
+- [x] Establish the smallest justified Redux Toolkit store for cross-route UI/workflow state.
+- [x] Keep ephemeral form, focus, expanded/collapsed, and animation state local to components.
+- [x] Ensure theme selection and scenario selection can be exercised locally.
+- [x] Acquire or confirm local production-usable brand and font assets before depending on them. The approved brand export is local; no font files are present or loaded, so system fonts remain a Phase 1 harness fallback and approved Inter/JetBrains Mono acquisition stays with Phase 2.
 
 ### Likely areas
 
@@ -153,25 +153,28 @@ Establish a clean UI-only foundation that can support the complete Stitch invent
 
 ### Mock scenarios
 
-- [ ] Default guest session.
-- [ ] Simulated authenticated session.
-- [ ] Light and dark theme selection.
-- [ ] Deterministic current date/time.
-- [ ] Direct selection of later screen states for verification.
+- [x] Default guest session.
+- [x] Simulated authenticated session.
+- [x] Light and dark theme selection.
+- [x] Deterministic current date/time.
+- [x] Direct selection of later screen states for verification.
 
 ### Verification checklist
 
-- [ ] App starts in the development build without runtime errors.
-- [ ] Root navigation and scenario selection are deterministic across reloads as intended.
-- [ ] Brand mark renders from a local approved asset and is not redrawn from a generic icon.
-- [ ] Type checking and linting pass using the repository's actual commands.
-- [ ] No production integration package or configuration was added.
+- [ ] App starts in the development build without runtime errors. Verified in Expo Go on iOS and Android; a dedicated development client is intentionally not configured in Phase 1, so this exact check remains pending.
+- [x] Root navigation and scenario selection are deterministic across reloads as intended.
+- [x] Brand mark renders from a local approved asset and is not redrawn from a generic icon.
+- [x] Type checking and linting pass using the repository's actual commands.
+- [x] No production integration package or configuration was added.
 
 ### Verification evidence
 
 | Date | Platform/device | Theme/state | Command or action | Result/discrepancies |
 |---|---|---|---|---|
-| — | — | — | Not yet run | Pending |
+| 2026-09-20 | Static checks | Phase 1 foundation | `npm run typecheck`; `npm run lint`; `npx expo config --type public` | Passed; Expo resolved SDK 57 config and local brand splash paths |
+| 2026-09-20 | Android / Pixel_3 emulator | Light + dark; guest + authenticated; route shells; planned-state selection | `npm run android`; Android accessibility actions and screenshots | Bundled without app runtime errors; theme/session state persisted across route navigation; planned Phase 3 entry opened as a registry placeholder; local brand matched the Stitch export |
+| 2026-09-20 | iOS / iPhone 17 simulator | Light harness and local brand | `npm run ios`; simulator screenshot | Bundled without app runtime errors; harness and local brand rendered; brand matched the Stitch export |
+| 2026-09-20 | Dedicated development client | Phase 1 foundation | Not run | Pending: repository intentionally has no `expo-dev-client` or generated native projects in this phase |
 
 ### Definition of Done
 

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" fill="none">
+  <rect width="120" height="120" rx="28" fill="#5E5CE6"/>
+  <!-- Elegant minimalist flight / capture wing path in crisp white -->
+  <path d="M30 68C42 68 54 58 64 42C74 26 88 28 92 34C94 37 93 42 88 48C76 62 62 82 46 88C38 91 32 87 30 79C29 75 29 70 30 68Z" fill="white" fill-opacity="0.95"/>
+  <circle cx="86" cy="36" r="4.5" fill="#C7D2FE"/>
+  <path d="M42 56C52 56 62 50 72 38" stroke="white" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 6"/>
+</svg>
