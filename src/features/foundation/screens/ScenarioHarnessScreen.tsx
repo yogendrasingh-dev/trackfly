@@ -20,6 +20,10 @@ export function ScenarioHarnessScreen() {
 
   const openScenario = (scenario: MockScenario) => {
     harness.selectScenario(scenario.id);
+    if (scenario.id === "foundation.visual-system") {
+      router.push("./design-system");
+      return;
+    }
     router.push({
       pathname: "/scenario-preview",
       params: { scenarioId: scenario.id },

@@ -24,6 +24,13 @@ const scenarios = [
     stitchId: "4bb8af66f60c444c9ff75c90d70bd031",
   },
   {
+    id: "foundation.visual-system",
+    title: "Visual system showcase",
+    description: "Phase 2 shared primitives, themes, overlays, content growth, and navigation shell.",
+    phase: "phase-2",
+    availability: "available",
+  },
+  {
     id: "onboarding.welcome",
     title: "Welcome & Onboarding",
     description: "Guest-first landing and onboarding entry.",
